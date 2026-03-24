@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="ACPV-Net is a unified framework for all-class polygonal vectorization and seamless vector map generation from aerial imagery.">
+  <meta name="keywords" content="ACPV-Net, vector map generation, polygonal vectorization, aerial imagery, CVPR 2026">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ACPV-Net: All-Class Polygonal Vectorization for Seamless Vector Map Generation from Aerial Imagery</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" type="image/png" href="./ITC.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://arxiv.org/abs/2603.16616">
+        <span class="icon">
+          <i class="ai ai-arxiv"></i>
+        </span>
+      </a>
+      <a class="navbar-item" href="https://github.com/HeinzJiao/ACPV-Net">
+        <span class="icon">
+          <i class="fab fa-github"></i>
+        </span>
+      </a>
+      <a class="navbar-item" href="https://huggingface.co/datasets/HeinzJiao/Deventer-512">
+        <span class="icon">
+          <i class="fas fa-database"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ACPV-Net: All-Class Polygonal Vectorization for Seamless Vector Map Generation from Aerial Imagery</h1>
+          <div class="publication-venue">CVPR 2026</div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://scholar.google.com/citations?user=htr3w3oAAAAJ&hl=en">Weiqin Jiao</a>,</span>
+            <span class="author-block"><a href="https://scholar.google.com/citations?user=oHK-JSUAAAAJ&hl=en&oi=ao">Hao Cheng</a>,</span>
+            <span class="author-block"><a href="https://scholar.google.com/citations?user=ro6HQUIAAAAJ&hl=en&oi=ao">George Vosselman</a>,</span>
+            <span class="author-block"><a href="https://scholar.google.com/citations?user=CI3bxVMAAAAJ&hl=en&oi=ao">Claudio Persello</a></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.itc.nl/about-itc/scientific-departments/earth-observation-science/">
+                Faculty of Geo-Information Science and Earth Observation (ITC), University of Twente
+              </a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Contact: <a href="mailto:w.jiao@utwente.nl">w.jiao@utwente.nl</a></span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2603.16616"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/HeinzJiao/ACPV-Net"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/HeinzJiao/Deventer-512"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-database"></i>
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="./41370_supp.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="far fa-images"></i>
+                  </span>
+                  <span>Supplement</span>
+                </a>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="pdf-panel teaser-panel">
+        <img
+          class="figure-image"
+          src="./teaser.png"
+          alt="ACPV-Net teaser figure">
+      </div>
+      <h2 class="subtitle has-text-centered">To generate an all-class vector basemap, existing single-class polygonization methods require per-class inference and stitching, resulting in gaps and overlaps across classes. ACPV-Net is the first fully automatic framework that produces a seamless basemap with shared-edge consistency and avoids gaps and overlaps in a single run.</h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>We tackle the problem of generating a complete vector map representation from aerial imagery in a single run: producing polygons for all land-cover classes with shared boundaries and without gaps or overlaps. Existing polygonization methods are typically class-specific; extending them to multiple classes via per-class runs commonly leads to topological inconsistencies, such as duplicated edges, gaps, and overlaps. We formalize this new task as All-Class Polygonal Vectorization (ACPV) and release the first public benchmark, Deventer-512, with standardized metrics jointly evaluating semantic fidelity, geometric accuracy, vertex efficiency, per-class topological fidelity and global topological consistency. To realize ACPV, we propose ACPV-Net, a unified framework introducing a novel Semantically Supervised Conditioning (SSC) mechanism coupling semantic perception with geometric primitive generation, along with a topological reconstruction that enforces shared-edge consistency by design. While enforcing such strict topological constraints, ACPV-Net surpasses all class-specific baselines in polygon quality across classes on Deventer-512. It also applies to single-class polygonal vectorization without any architectural modification, achieving the best-reported results on WHU-Building.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Contributions</h2>
+        <div class="content has-text-justified">
+          <ul>
+            <li>We address the vector basemap generation problem by formulating it as All-Class Polygonal Vectorization (ACPV): generating a single, globally consistent planar partition of the image domain into per-class polygons that satisfy strict topological consistency.</li>
+            <li>We introduce ACPV-Net, the first fully automatic framework that, in a single run, produces topologically consistent vector basemaps from aerial imagery.</li>
+            <li>We release Deventer-512, the first public ACPV benchmark with high-resolution imagery, fine-grained polygons across five land-cover classes, a standardized evaluation protocol, and subsets for challenging conditions.</li>
+            <li>ACPV-Net achieves gap-/overlap-free topology and significantly outperforms strong class-specific baselines across land-cover classes on Deventer-512. It also applies, without any architectural change, to single-class polygonal vectorization on the WHU-Building dataset while maintaining excellent performance.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Method</h2>
+        <div class="content has-text-centered">
+          <p>
+            ACPV-Net unifies semantically supervised conditioning and proposition-driven topological reconstruction: the former produces coherent semantic-geometric evidence through diffusion-based vertex generation under semantic supervision, the latter deterministically reconstructs a topology-consistent vector basemap via overdense PSLG construction and vertex-guided subset selection.
+          </p>
+        </div>
+        <div class="pdf-panel method-panel">
+          <img
+            class="figure-image"
+            src="./network_architecture.png"
+            alt="ACPV-Net network architecture">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Qualitative Comparison</h2>
+        <div class="tabs is-centered is-boxed qualitative-tabs">
+          <ul>
+            <li class="is-active" data-tab="geometry"><a>Geometric Complexity</a></li>
+            <li data-tab="thin"><a>Thin Structures</a></li>
+            <li data-tab="visual"><a>Weak Visual Condition</a></li>
+          </ul>
+        </div>
+
+        <div class="qualitative-tab-content is-active" data-content="geometry">
+          <div class="content has-text-centered">
+            <p>A challenging multi-class scene with complex geometry. ACPV-Net preserves class boundaries while maintaining seamless topology.</p>
+          </div>
+          <div class="qual-grid">
+            <div class="qual-item"><h3>Input</h3><div class="qual-image-shell"><img class="qual-image" src="./multi_class_geometric_complexity_aerial_image.png" alt="Geometric complexity input"></div></div>
+            <div class="qual-item"><h3>GT</h3><div class="qual-image-shell"><img class="qual-image" src="./multi_class_geometric_complexity_gt.png" alt="Geometric complexity ground truth"></div></div>
+            <div class="qual-item"><h3>GCP</h3><div class="qual-image-shell"><img class="qual-image" src="./multi_class_geometric_complexity_gcp.png" alt="Geometric complexity GCP"></div></div>
+            <div class="qual-item"><h3>HiSup</h3><div class="qual-image-shell"><img class="qual-image" src="./multi_class_geometric_complexity_hisup.png" alt="Geometric complexity HiSup"></div></div>
+            <div class="qual-item"><h3>TopDiG</h3><div class="qual-image-shell"><img class="qual-image" src="./multi_class_geometric_complexity_topdig.png" alt="Geometric complexity TopDiG"></div></div>
+            <div class="qual-item"><h3>ACPV-Net (Ours)</h3><div class="qual-image-shell"><img class="qual-image" src="./multi_class_geometric_complexity_ours.png" alt="Geometric complexity ACPV-Net"></div></div>
+          </div>
+        </div>
+
+        <div class="qualitative-tab-content" data-content="thin">
+          <div class="content has-text-centered">
+            <p>Thin and elongated structures are sensitive to topological breaks and vertex redundancy. ACPV-Net recovers these details while keeping polygons coherent.</p>
+          </div>
+          <div class="qual-grid">
+            <div class="qual-item"><h3>Input</h3><div class="qual-image-shell"><img class="qual-image" src="./thin_structures_aerial_image.png" alt="Thin structures input"></div></div>
+            <div class="qual-item"><h3>GT</h3><div class="qual-image-shell"><img class="qual-image" src="./thin_structures_gt.png" alt="Thin structures ground truth"></div></div>            
+            <div class="qual-item"><h3>GCP</h3><div class="qual-image-shell"><img class="qual-image" src="./thin_structures_gcp.png" alt="Thin structures GCP"></div></div>
+            <div class="qual-item"><h3>HiSup</h3><div class="qual-image-shell"><img class="qual-image" src="./thin_structures_hisup.png" alt="Thin structures HiSup"></div></div>
+            <div class="qual-item"><h3>TopDiG</h3><div class="qual-image-shell"><img class="qual-image" src="./thin_structures_topdig.png" alt="Thin structures TopDiG"></div></div>
+            <div class="qual-item"><h3>ACPV-Net (Ours)</h3><div class="qual-image-shell"><img class="qual-image" src="./thin_structures_ours.png" alt="Thin structures ACPV-Net"></div></div>
+          </div>
+        </div>
+
+        <div class="qualitative-tab-content" data-content="visual">
+          <div class="content has-text-centered">
+            <p>Under difficult appearance conditions, ACPV-Net still infers more consistent polygonal maps and shared boundaries than existing baselines.</p>
+          </div>
+          <div class="qual-grid">
+            <div class="qual-item"><h3>Input</h3><div class="qual-image-shell"><img class="qual-image" src="./visual_conditions_aerial_image.png" alt="Weak visual condition input"></div></div>
+            <div class="qual-item"><h3>GT</h3><div class="qual-image-shell"><img class="qual-image" src="./visual_conditions_gt.png" alt="Weak visual condition ground truth"></div></div>
+            <div class="qual-item"><h3>GCP</h3><div class="qual-image-shell"><img class="qual-image" src="./visual_conditions_gcp.png" alt="Weak visual condition GCP"></div></div>
+            <div class="qual-item"><h3>HiSup</h3><div class="qual-image-shell"><img class="qual-image" src="./visual_conditions_hisup.png" alt="Weak visual condition HiSup"></div></div>
+            <div class="qual-item"><h3>TopDiG</h3><div class="qual-image-shell"><img class="qual-image" src="./visual_conditions_topdig.png" alt="Weak visual condition TopDiG"></div></div>
+            <div class="qual-item"><h3>ACPV-Net (Ours)</h3><div class="qual-image-shell"><img class="qual-image" src="./visual_conditions_ours.png" alt="Weak visual condition ACPV-Net"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Acknowledgements</h2>
+        <div class="content has-text-justified">
+          <p>
+            This publication is part of the project “Learning from old maps to create new ones”, with project number 19206 of the Open Technology Programme, which is financed by the <a href="https://www.nwo.nl/en">Dutch Research Council (NWO)</a>, The Netherlands.
+            We thank the members of the project for their support in data preparation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{jiao2026acpvnetallclasspolygonalvectorization,
+  title={ACPV-Net: All-Class Polygonal Vectorization for Seamless Vector Map Generation from Aerial Imagery},
+  author={Weiqin Jiao and Hao Cheng and George Vosselman and Claudio Persello},
+  year={2026},
+  eprint={2603.16616},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2603.16616},
+}
+
+@inproceedings{jiao2026acpvnet,
+  title={ACPV-Net: All-Class Polygonal Vectorization for Seamless Vector Map Generation from Aerial Imagery},
+  author={Jiao, Weiqin and Cheng, Hao and Vosselman, George and Persello, Claudio},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2026},
+  note={Accepted, camera-ready version pending}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://arxiv.org/abs/2603.16616">
+        <i class="ai ai-arxiv"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/HeinzJiao/ACPV-Net">
+        <i class="fab fa-github"></i>
+      </a>
+      <a class="icon-link" href="https://huggingface.co/datasets/HeinzJiao/Deventer-512">
+        <i class="fas fa-database"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is adapted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies website source code</a>,
+            in the spirit of the <a href="https://vgg-t.github.io/">VGGT</a> project page style.
+          </p>
+          <p>
+            The original Nerfies website source is distributed under a
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
